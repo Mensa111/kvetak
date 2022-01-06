@@ -1,0 +1,44 @@
+{% extends "base.html.j2" %}
+
+{%block title%}ABC{%endblock%}
+
+{% block obsah %}
+
+Tady jsem si to přepsal.
+
+
+<h1>Session</h1>
+
+<strong>{{ session.get('slovo') }}</strong>
+
+<form method="get">
+    <input type="text" name="slovo">
+    <button type="submit">Odeslat</button>
+</form>
+
+<h1>Get</h1>
+
+<form  method="get">
+   <input type="text" name="x" value="{{ request.args.get('x') or '' }}"> +
+   <input type="number" name="y" value="{{ request.args.get('y') or '' }}"> = {{soucet}} 
+
+    <button name="submit">Sečíst</button>
+
+</form>
+
+<h1>Post</h1>
+
+<form method="post">
+    <input type="text" name="jmeno"><br>
+    <input type="password" name="heslo"> <br>
+    <button>Odeslat</button> <button type="reset">Reset</button>
+</form>
+
+
+{% for i in  range(1,7) -%}
+<h{{i}} >Nadpis {{ i }}</h{{i}}>
+{% endfor -%}
+
+
+{% endblock obsah %}
+
